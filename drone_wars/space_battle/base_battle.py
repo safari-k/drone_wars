@@ -1,14 +1,17 @@
+import battle_physics
+from kivy.uix.screenmanager import Screen
 
-class BaseBattle():
+
+class BaseBattle(Screen):
 
     def __init__(self):
         # create physics space
-
+        self._physics = battle_physics.BattlePhysics()
 
         pass
 
     def next_turn(self):
-        #if cmd queue full then run
+        # if cmd queue full then run
 
         pass
 
