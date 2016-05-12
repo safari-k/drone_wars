@@ -1,7 +1,7 @@
 import pymunk as pm
 
 
-class StructurePhysics:
+class ComponentPhysics:
     def __init__(self, world, pos):
         self.world = world
 
@@ -13,4 +13,3 @@ class StructurePhysics:
         shape = pm.Poly(self.body, vertices, transform=None, radius=0)
         shape.elasticity = 0.95
         self.world.add(self.body, shape)
-
