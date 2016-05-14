@@ -19,7 +19,14 @@ class BaseComponent(Widget):
             # Add a red color
             Color(1., 0, 0)
             # Add a rectangle
-            Rectangle(pos=pos, size=(10, 10))
+            self.rect = Rectangle(pos=pos, size=(10, 10))
+
+        self.bind(pos=self.update_rect,
+                  size=self.update_rect)
+
+    def update_rect(self, *args):
+        self.rect.pos = self.pos
+        # self.rect.size = self.size
 
     def update_from_physics(self):
         self.pos = self.physics.body.position.x, self.physics.body.position.y

@@ -15,10 +15,12 @@ class Ship(RelativeLayout):
     def __init__(self, world, pos, **kwargs):
         super(Ship, self).__init__(**kwargs)
 
-        self.gun = base_component.BaseComponent(world=world, pos=(pos[0] + 0, pos[1] + 10))
+        self.gun = base_component.BaseComponent(world=world, pos=(pos[0] + 0, pos[1] + 20))
         self.thruster = base_component.BaseComponent(world=world, pos=(pos[0] + 0, pos[1] + 0))
         self.gun_to_thruster = pm.PinJoint(self.gun.physics.body, self.thruster.physics.body)
         self.add_widget(self.gun)
         self.add_widget(self.thruster)
 
-
+    def update_from_physics(self):
+        self.gun.update_from_physics()
+        self.thruster.update_from_physics()
