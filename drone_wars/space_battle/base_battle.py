@@ -8,12 +8,10 @@ class BaseBattle(Screen):
     def __init__(self, *args, **kwargs):
         # create physics space
         super(BaseBattle, self).__init__(**kwargs)
-        self._physics = battle_physics.BattlePhysics()
+        self.physics = battle_physics.BattlePhysics()
 
         self.add_widget(Button(text='A button', size_hint=(0.1, 0.1)))
 
-
-        pass
 
     def next_turn(self):
         # if cmd queue full then run

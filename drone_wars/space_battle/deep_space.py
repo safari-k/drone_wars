@@ -29,6 +29,9 @@ class MenuScreen(Screen):
 
 
 class BattleApp(App):
+    def __init__(self, **kwargs):
+        super(BattleApp, self).__init__(**kwargs)
+        self.current_battle = None
 
     def build(self):
         # Create the screen manager
@@ -41,7 +44,7 @@ class BattleApp(App):
         return sm
 
     def _update_world(self, dt):
-        self.current_battle._physics.step(dt)
+        self.current_battle.physics.step(dt)
         for child in self.current_battle.structures:
             child.update_from_physics()
 
