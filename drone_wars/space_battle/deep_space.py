@@ -13,8 +13,7 @@ class DeepSpace(base_battle.BaseBattle):
         # create physics space
         super(DeepSpace, self).__init__(*args, **kwargs)
 
-        self.structures = []
-        a_ship = Ship(world=self._physics, pos=(500, 500))
+        a_ship = Ship(world=self.physics, pos=(500, 500))
         self.structures.append(a_ship)
         self.add_widget(a_ship)
 
@@ -39,7 +38,7 @@ class BattleApp(App):
         self.current_battle = DeepSpace(name='DeepSpace')
         sm.add_widget(self.current_battle)
 
-        Clock.schedule_interval(self._update_world, 1 / 60.)
+        # Clock.schedule_interval(self._update_world, 1 / 60.)
 
         return sm
 
