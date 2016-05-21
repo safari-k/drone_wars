@@ -2,10 +2,8 @@ import base_battle
 from drone_wars.structures.ship import Ship
 from kivy.uix.screenmanager import ScreenManager
 from kivy.uix.screenmanager import Screen
-
 from kivy.app import App
 from kivy.uix.button import Button
-from kivy.clock import Clock
 
 
 class DeepSpace(base_battle.BaseBattle):
@@ -38,14 +36,7 @@ class BattleApp(App):
         self.current_battle = DeepSpace(name='DeepSpace')
         sm.add_widget(self.current_battle)
 
-        # Clock.schedule_interval(self._update_world, 1 / 60.)
-
         return sm
-
-    def _update_world(self, dt):
-        self.current_battle.physics.step(dt)
-        for child in self.current_battle.structures:
-            child.update_from_physics()
 
 if __name__ == '__main__':
     BattleApp().run()
